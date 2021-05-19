@@ -5,7 +5,6 @@ const cors = require("cors");
 
 
 app.use(express.json());
-app.use(express.static(__dirname + "/public"));
 app.use(cors());
 app.set('port', process.env.PORT || 3001);
 app.locals.contactInformation = contactData;
