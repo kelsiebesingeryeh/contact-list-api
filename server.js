@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const contactData = require('./contactData.js');
 
-app.locals.contactInformation = contactData;
 
 app.use(express.json());
 app.set('port', process.env.PORT || 3000);
+app.locals.contactInformation = contactData;
+
 app.listen(app.get('port'), () => {
     console.log(`Now listening on port ${app.get('port')}!`)
 });
@@ -27,7 +28,7 @@ app.get('/api/v1/contactInfomation/:id', (request, response) => {
     }
 });
 
-app.post('/api/va/contactInformation', (request, response) => {
+app.post('/api/v1/contactInformation', (request, response) => {
     const id = Date.now();
     const contact = request.body;
 
