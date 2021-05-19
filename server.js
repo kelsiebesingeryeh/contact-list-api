@@ -5,8 +5,9 @@ const cors = require("cors");
 
 
 app.use(express.json());
+app.use(express.static(__dirname + "/public"));
 app.use(cors());
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.locals.contactInformation = contactData;
 
 app.listen(app.get('port'), () => {
@@ -17,7 +18,7 @@ app.get('/api/v1/contactInformation', (request, response) => {
     response.status(200).json(app.locals.contactInformation)
 });
 
-app.get('/api/v1/contactInfomation/:id', (request, response) => {
+app.get('/api/v1/contactInformation/:id', (request, response) => {
     const reqId = parseInt(request.params.id);
     const foundContact = app.locals.contactInformation.find(info => {
         return info.id === reqId;

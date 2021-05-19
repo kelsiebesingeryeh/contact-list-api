@@ -30,3 +30,5 @@ const contactData = [
     email: "duck123@example.com",
   },
 ];
+
+module.exports = contactData;
